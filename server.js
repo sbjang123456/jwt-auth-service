@@ -4,7 +4,7 @@ const path = require('path');
 const yaml = require("js-yaml");
 const fs = require("fs");
 const logger = require('./config/winston')('server');
-const config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, "..", "config", "config.yaml"), 'utf8'))[process.env.NODE_ENV || "development"];
+const config = yaml.load(fs.readFileSync(path.join(__dirname, "config", "config.yaml"), 'utf8'))[process.env.NODE_ENV || "development"];
 const PORT = config.comm.nodePort || 8080;
 
 /* Node Server */
