@@ -1,0 +1,96 @@
+openapi: 3.0.0
+info:
+  title: jwt-auth-service
+  version: 1.0.0
+  description: |
+    JWT 인증 및 체크 테스트 API 요청 및 응답 확인
+  termsOfService: 'https://github.com/sbjang123456/jwt-auth-service'
+  contact:
+    email: sbjang123456@gmail.com
+  license:
+    name: JangSubin
+    url: 'https://github.com/sbjang123456'
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: 'http://localhost:3000'
+tags:
+  - name: auth
+    description: 인증
+paths:
+  /auth/token/issuance:
+    post:
+      tags:
+        - auth
+      summary: 접근토큰 및 갱신토큰 생성
+      description: |
+      operationId: createToken
+      responses:
+        '201':
+          description: not found
+        '404':
+          description: create token success!
+  /auth/token/reissuance:
+    post:
+      tags:
+        - auth
+      summary: 접근토큰 갱신
+      description: ''
+      operationId: refreshToken
+      parameters:
+        - name: refresh_token
+          in: header
+          description: 갱신토큰
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: success
+        '401':
+          description: unauthorized
+        '419':
+          description: token expired
+  /auth/token/verification:
+    post:
+      tags:
+        - auth
+      summary: 토큰 검증
+      description: ''
+      operationId: verifyToken
+      parameters:
+        - name: access_token
+          in: header
+          description: 접근토큰
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: success
+        '401':
+          description: unauthorized
+        '419':
+          description: token expired
+  /auth/token/userInfo:
+    post:
+      tags:
+        - auth
+      summary: 유저 정보 조회
+      description: ''
+      operationId: userInfo
+      parameters:
+        - name: access_token
+          in: header
+          description: 접근토큰
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: success
+        '401':
+          description: unauthorized
+        '419':
+          description: token expired
+components:
+  requestBodies:
