@@ -1,0 +1,11 @@
+##config
+---
+context: "/"
+group: sbjang123456
+project: jwt-auth-service
+development:
+  comm:
+    nodePort: 8099
+production:
+  comm:
+    nodePort: 80
