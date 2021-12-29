@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/sbjang123456/jwt-auth-service/issues"
   },
-  "homepage": "https://github.com/sbjang123456/jwt-auth-service#readme"
+  "homepage": "https://github.com/sbjang123456/jwt-auth-service#readme",
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.5"
+  }
 }
