@@ -18,8 +18,12 @@
   },
   "homepage": "https://github.com/sbjang123456/jwt-auth-service#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
     "get-ip": "^2.0.0",
     "js-yaml": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
     "swagger-ui-express": "^4.3.0",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.5"
