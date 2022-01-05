@@ -13,8 +13,7 @@ const verifyToken = (req, res, next) => {
             res.status(200).json({
                 userId: decoded.user_id,
                 email: decoded.email,
-
-            })
+            });
         } else {
             res.status(401).json({ error: 'unauthorized' });
         }

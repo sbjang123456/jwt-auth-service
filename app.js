@@ -9,7 +9,7 @@ require('./docs/swagger')(app);
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extends: false }));
+// app.use(express.urlencoded({ extends: false }));
 app.use(
     morgan(process.env.NODE_ENV !== "production" ? "dev" : "combined", {
         skip: (req, res) => { return res.statusCode < 400 },
