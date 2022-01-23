@@ -11,17 +11,16 @@ const verifyToken = (req, res, next) => {
         const decoded = jsonwebtoken.verify(clientToken, JWT_SECRET);
         if (decoded) {
             res.status(200).json({
-                userId: decoded.user_id,
-                email: decoded.email,
+                valid: true
             });
         } else {
-            res.status(401).json({ error: 'unauthorized' });
+            res.status(401).json({valid: false, error: 'unauthorized'});
         }
     } catch (err) {
         if (err.name === 'TokenExpiredError') {
-            res.status(419).json({ error: 'token expired' });
+            res.status(419).json({ valid: false, error: 'token expired' });
         } else {
-            res.status(401).json({ error: 'unauthorized' });
+            res.status(401).json({ valid: false, error: 'unauthorized' });
         }
     }
 };
